@@ -1,71 +1,69 @@
-# 🐦 Twitter Analysis Project
+# Twitter Influencer Analysis
 
-## 📌 Overview
-
-This project explores **Twitter data** to uncover insights into user behavior, sentiment, and engagement trends. Using Python, I built a workflow to collect, clean, and analyze tweets and user profiles, then visualized results to highlight key findings.
-
-The goal was to transform raw social media data into actionable insights that could be applied in areas like **marketing analytics, sentiment detection, and trend forecasting**.
+A data visualization project exploring influencer engagement patterns on Twitter. The central research question: **which category of influencers yields the maximum engagement ROI?**
 
 ---
 
-## ⚙️ Features
+## Dataset
 
-* 🔹 **Data Collection:** Collected user profiles, tweets, and metadata into structured CSV files (`users.csv`, `tweets.csv`, `profile_snapshots.csv`).
-* 🔹 **Preprocessing:** Cleaned and normalized text (stopword removal, tokenization, stemming/lemmatization) for accurate analysis.
-* 🔹 **Sentiment Analysis:** Measured public opinion and emotional tone in tweets.
-* 🔹 **Trend Analysis:** Identified top hashtags, frequent words, and emerging topics over time.
-* 🔹 **Network Analysis:** Tracked influencer activity and user interactions to study community structures.
-* 🔹 **Visualization:** Built interactive charts and dashboards to present insights clearly.
+Five interrelated CSV files linked by `twitterUserId`:
 
----
+| File | Records | Description |
+|------|---------|-------------|
+| `users.csv` | 127 | Core account info (handle, location, country, join date) |
+| `profile_snapshots.csv` | 3,999 | Time-series snapshots of follower/following/likes/tweet counts |
+| `tweets.csv` | 24,216 | Individual tweets with engagement metrics (favorites, retweets, replies, quotes) |
+| `likes.csv` | 278,329 | Like relationships between accounts and tweets |
+| `followers.csv` | 127 | Follower relationships between accounts |
 
-## 🛠️ Tech Stack
-
-* **Programming:** Python (Pandas, NumPy, Matplotlib, Seaborn, TextBlob/NLTK)
-* **Data Handling:** CSV, JSON, Tweepy (or other Twitter APIs if used)
-* **Visualization:** Matplotlib, Seaborn, WordCloud, Plotly
-* **Documentation:** Jupyter Notebook, Markdown
+All tables join on `twitterUserId`. See the schema diagram in `/docs` for full field descriptions.
 
 ---
 
-## 📊 Key Insights
-
-* Found meaningful patterns in tweet sentiment, highlighting shifts in **positive vs. negative engagement**.
-* Discovered **influential users and trending hashtags**, showing how communities shape online discussions.
-* Built **visual reports** that turn noisy social media data into easy-to-understand trends for decision-making.
-
----
-
-## 🚀 Outcomes
-
-* Strengthened skills in **data preprocessing, exploratory data analysis, and visualization**.
-* Applied **machine learning and natural language processing techniques** to real-world unstructured data.
-* Produced a **reusable framework** for analyzing Twitter data, applicable to marketing, customer engagement, or social trend research.
-
----
-
-## 📂 Repository Structure
+## Project Structure
 
 ```
-├── data/                   # Collected Twitter datasets (users, tweets, profiles)  
-├── notebooks/              # Jupyter Notebooks with code and analysis steps  
-├── visuals/                # Graphs, word clouds, dashboards  
-├── README.md               # Project documentation  
-└── requirements.txt        # Dependencies  
+.
+├── data/               # Raw CSV files
+├── notebooks/          # Analysis and visualization code
+├── visuals/            # Exported charts and figures
+├── docs/               # Project brief, schema diagram, presentation slides
+└── README.md
 ```
 
 ---
 
-## ✨ Next Steps
+## Visualizations
 
-* Expand sentiment analysis with deep learning models.
-* Integrate real-time streaming data for live insights.
-* Deploy dashboards using **Tableau/Power BI** or a web app.
+- **Sankey chart** — flow from influencer categories to engagement metrics (followers, retweets, likes) and topic areas
+- **Category bar charts** — engagement breakdown by influencer category
+- **Topic frequency chart** — distribution of retweets/likes across topic clusters
+- **Sentiment analysis** — display name categorization by sentiment
 
 ---
 
-## 🙌 Acknowledgments
+## Milestones
 
-This project was inspired by my interest in **natural language processing and social media analytics**. Special thanks to open-source libraries and datasets that made this analysis possible.
+| Milestone | Date |
+|-----------|------|
+| Desk crits | Week of 2/26 |
+| Project pinup | Week of 3/11 |
+| Mid-term presentation | Week of 3/18 |
 
+---
 
+## Usage
+
+1. Clone the repo and place the raw CSV files in `/data`
+2. Run the notebooks in order inside `/notebooks`
+3. Exported visualizations will be saved to `/visuals`
+
+All code to reproduce the visualizations is included. Any post-processing done in external tools (e.g. Illustrator) is noted inline in the relevant notebook.
+
+---
+
+## Requirements
+
+- Python 3.x
+- Pandas, Matplotlib / Seaborn (or equivalent charting library)
+- Any additional dependencies listed in `requirements.txt`
